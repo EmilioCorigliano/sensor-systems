@@ -1,0 +1,10 @@
+16:27:58 **** Incremental Build of configuration Debug for project I2C-Accelerometer ****
+make -j8 all 
+arm-none-eabi-size   I2C-Accelerometer.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28784	    484	   1748	  31016	   7928	I2C-Accelerometer.elf
+Finished building: default.size.stdout
+ 
+
+16:27:59 Build Finished. 0 errors, 0 warnings. (took 427ms)
+

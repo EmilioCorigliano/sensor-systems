@@ -1,0 +1,10 @@
+18:46:32 **** Incremental Build of configuration Debug for project proveEsame ****
+make -j8 all 
+arm-none-eabi-size   proveEsame.elf 
+   text	   data	    bss	    dec	    hex	filename
+  46820	    492	   2332	  49644	   c1ec	proveEsame.elf
+Finished building: default.size.stdout
+ 
+
+18:46:33 Build Finished. 0 errors, 0 warnings. (took 358ms)
+

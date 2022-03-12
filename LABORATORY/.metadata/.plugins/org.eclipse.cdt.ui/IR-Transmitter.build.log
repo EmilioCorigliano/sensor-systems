@@ -1,0 +1,10 @@
+15:59:35 **** Incremental Build of configuration Debug for project IR-Transmitter ****
+make -j8 all 
+arm-none-eabi-size   IR-Transmitter.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12388	     28	   1788	  14204	   377c	IR-Transmitter.elf
+Finished building: default.size.stdout
+ 
+
+15:59:36 Build Finished. 0 errors, 0 warnings. (took 776ms)
+

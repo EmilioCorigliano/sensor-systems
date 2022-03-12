@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;IR-Transmitter&apos;" deleteContents="true" description="Delete resource &apos;IR-Transmitter&apos;" element1="/IR-Transmitter" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1639672121160"/>&#x0A;<refactoring comment="Delete resource &apos;IR-Transceiver-piano/Core/Inc/Accelerometer-h&apos;" deleteContents="false" description="Delete resource &apos;IR-Transceiver-piano/Core/Inc/Accelerometer-h&apos;" element1="/IR-Transceiver-piano/Core/Inc/Accelerometer-h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1639753479835"/>
+</session>

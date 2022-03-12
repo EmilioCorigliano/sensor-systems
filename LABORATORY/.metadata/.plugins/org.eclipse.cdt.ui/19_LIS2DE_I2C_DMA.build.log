@@ -1,0 +1,94 @@
+17:29:13 **** Incremental Build of configuration Debug for project 19_LIS2DE_I2C_DMA ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:126:18: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+  126 |    int msg_len = snprintf(uart_msg, 64, "Error! Check if the address of your sensor is correct.\r\n");
+      |                  ^~~~~~~~
+../Core/Src/main.c:126:18: warning: incompatible implicit declaration of built-in function 'snprintf'
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+   21 | #include "main.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:127:35: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_DMA' differ in signedness [-Wpointer-sign]
+  127 |    HAL_UART_Transmit_DMA(&huart2, uart_msg, msg_len);
+      |                                   ^~~~~~~~
+      |                                   |
+      |                                   char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:727:77: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  727 | HAL_StatusTypeDef HAL_UART_Transmit_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                    ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:346:57: warning: pointer targets in passing argument 3 of 'HAL_I2C_Master_Transmit' differ in signedness [-Wpointer-sign]
+  346 |   status = HAL_I2C_Master_Transmit(&hi2c1, LIS2DE_ADDR, &first, 1, 10);
+      |                                                         ^~~~~~
+      |                                                         |
+      |                                                         int8_t * {aka signed char *}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int8_t *' {aka 'signed char *'}
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/main.c:347:62: warning: pointer targets in passing argument 3 of 'HAL_I2C_Master_Receive_DMA' differ in signedness [-Wpointer-sign]
+  347 |   status = HAL_I2C_Master_Receive_DMA(&hi2c1, LIS2DE_ADDR+1, read_bytes, 5);
+      |                                                              ^~~~~~~~~~
+      |                                                              |
+      |                                                              int8_t * {aka signed char *}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:593:101: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int8_t *' {aka 'signed char *'}
+  593 | HAL_StatusTypeDef HAL_I2C_Master_Receive_DMA(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size);
+      |                                                                                            ~~~~~~~~~^~~~~
+../Core/Src/main.c:343:21: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  343 |   HAL_StatusTypeDef status;
+      |                     ^~~~~~
+../Core/Src/main.c: In function 'HAL_I2C_MasterRxCpltCallback':
+../Core/Src/main.c:358:3: warning: incompatible implicit declaration of built-in function 'snprintf'
+  358 |   snprintf(uart_msg, 64, "X: %.3f g\tY: %.3f g\tZ: %.3f g\r\n", acc_x, acc_y, acc_z);
+      |   ^~~~~~~~
+../Core/Src/main.c:358:3: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+../Core/Src/main.c:359:44: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  359 |   HAL_UART_Transmit_DMA(&huart2, uart_msg, strlen(uart_msg));
+      |                                            ^~~~~~
+../Core/Src/main.c:359:44: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   21 | #include "main.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:359:34: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_DMA' differ in signedness [-Wpointer-sign]
+  359 |   HAL_UART_Transmit_DMA(&huart2, uart_msg, strlen(uart_msg));
+      |                                  ^~~~~~~~
+      |                                  |
+      |                                  char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:727:77: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  727 | HAL_StatusTypeDef HAL_UART_Transmit_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                    ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "19_LIS2DE_I2C_DMA.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\emili\OneDrive - Politecnico di Milano\Desktop\Backup\POLITECNICO\4ANNO\1-SENSOR SYSTEMS\projects\19_LIS2DE_I2C_DMA\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="19_LIS2DE_I2C_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 19_LIS2DE_I2C_DMA.elf
+ 
+arm-none-eabi-size   19_LIS2DE_I2C_DMA.elf 
+arm-none-eabi-objdump -h -S  19_LIS2DE_I2C_DMA.elf  > "19_LIS2DE_I2C_DMA.list"
+arm-none-eabi-objcopy  -O binary  19_LIS2DE_I2C_DMA.elf  "19_LIS2DE_I2C_DMA.bin"
+   text	   data	    bss	    dec	    hex	filename
+  40340	    484	   2100	  42924	   a7ac	19_LIS2DE_I2C_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 19_LIS2DE_I2C_DMA.bin
+ 
+Finished building: 19_LIS2DE_I2C_DMA.list
+ 
+
+17:29:16 Build Finished. 0 errors, 10 warnings. (took 3s.12ms)
+

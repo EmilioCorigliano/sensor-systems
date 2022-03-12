@@ -1,0 +1,10 @@
+18:09:32 **** Build of configuration Debug for project keyboard-DMA ****
+make -j8 all 
+arm-none-eabi-size   keyboard-DMA.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12448	    136	   1776	  14360	   3818	keyboard-DMA.elf
+Finished building: default.size.stdout
+ 
+
+18:09:32 Build Finished. 0 errors, 0 warnings. (took 428ms)
+

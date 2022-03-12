@@ -1,0 +1,49 @@
+17:57:53 **** Incremental Build of configuration Debug for project keyboard ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:71:3: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   71 |   memset(pressed[i], 0, 4);
+      |   ^~~~~~
+../Core/Src/main.c:71:3: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'memset'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/main.c:114:20: warning: too many arguments for format [-Wformat-extra-args]
+  114 |       sprintf(str, "%c", keyboard[iRow][iCol], row);
+      |                    ^~~~
+../Core/Src/main.c:115:39: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  115 |       HAL_UART_Transmit(&huart2, str, strlen(str), 100);
+      |                                       ^~~~~~
+../Core/Src/main.c:115:39: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:115:39: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:115:34: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  115 |       HAL_UART_Transmit(&huart2, str, strlen(str), 100);
+      |                                  ^~~
+      |                                  |
+      |                                  char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:723:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  723 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "keyboard.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\emili\OneDrive - Politecnico di Milano\Desktop\Backup\POLITECNICO\4ANNO\1-SENSOR SYSTEMS\projects\keyboard\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="keyboard.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: keyboard.elf
+ 
+arm-none-eabi-size   keyboard.elf 
+arm-none-eabi-objdump -h -S  keyboard.elf  > "keyboard.list"
+arm-none-eabi-objcopy  -O binary  keyboard.elf  "keyboard.bin"
+   text	   data	    bss	    dec	    hex	filename
+  10896	    136	   1680	  12712	   31a8	keyboard.elf
+Finished building: default.size.stdout
+ 
+Finished building: keyboard.bin
+Finished building: keyboard.list
+ 
+ 
+
+17:57:54 Build Finished. 0 errors, 6 warnings. (took 839ms)
+

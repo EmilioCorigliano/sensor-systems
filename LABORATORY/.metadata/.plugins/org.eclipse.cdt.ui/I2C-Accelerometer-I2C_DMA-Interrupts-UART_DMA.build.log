@@ -1,0 +1,87 @@
+16:32:20 **** Build of configuration Debug for project I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:145:30: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  145 |   HAL_UART_Transmit(&huart2, starting_str, strlen(starting_str), 100); // DEBUG
+      |                              ^~~~~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:723:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const char *'
+  723 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c:149:30: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  149 |   HAL_UART_Transmit(&huart2, error_str, strlen(error_str), 100); // DEBUG
+      |                              ^~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:723:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const char *'
+  723 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:353:30: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  353 |   HAL_UART_Transmit(&huart2, tim_str, strlen(tim_str), 100); // DEBUG
+      |                              ^~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:723:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const char *'
+  723 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_MasterRxCpltCallback':
+../Core/Src/main.c:363:30: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  363 |   HAL_UART_Transmit(&huart2, i2c_str, strlen(i2c_str), 100);  // DEBUG
+      |                              ^~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:723:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const char *'
+  723 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'readRegDMA':
+../Core/Src/main.c:413:30: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  413 |   HAL_UART_Transmit(&huart2, error_str, strlen(error_str), 100);  // DEBUG
+      |                              ^~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:723:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const char *'
+  723 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'printSampleDMA':
+../Core/Src/main.c:448:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_DMA' differ in signedness [-Wpointer-sign]
+  448 |  HAL_UART_Transmit_DMA(&huart2, sample_str, strlen(sample_str));
+      |                                 ^~~~~~~~~~
+      |                                 |
+      |                                 char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:727:77: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  727 | HAL_StatusTypeDef HAL_UART_Transmit_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                    ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\emili\OneDrive - Politecnico di Milano\Desktop\Backup\POLITECNICO\4ANNO\1-SENSOR SYSTEMS\projects\I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA.elf
+ 
+arm-none-eabi-size   I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA.elf 
+arm-none-eabi-objdump -h -S  I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA.elf  > "I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA.list"
+arm-none-eabi-objcopy  -O binary  I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA.elf  "I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA.bin"
+   text	   data	    bss	    dec	    hex	filename
+  40620	    500	   2100	  43220	   a8d4	I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA.bin
+ 
+Finished building: I2C-Accelerometer-I2C_DMA-Interrupts-UART_DMA.list
+ 
+
+16:32:21 Build Finished. 0 errors, 6 warnings. (took 1s.218ms)
+

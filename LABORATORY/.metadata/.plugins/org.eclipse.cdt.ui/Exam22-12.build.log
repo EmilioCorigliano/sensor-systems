@@ -1,0 +1,58 @@
+12:08:06 **** Incremental Build of configuration Debug for project Exam22-12 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:25:
+../Core/Inc/Keyboard.h: In function 'init_Keyboard':
+../Core/Inc/Keyboard.h:46:3: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   46 |   memset(pressed[i], 0, 4);
+      |   ^~~~~~
+../Core/Inc/Keyboard.h:46:3: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Inc/Keyboard.h:1:1: note: include '<string.h>' or provide a declaration of 'memset'
+  +++ |+#include <string.h>
+    1 | /*
+../Core/Src/main.c: In function 'calculateAvgAndSend':
+../Core/Src/main.c:414:20: warning: implicit declaration of function 'pow' [-Wimplicit-function-declaration]
+  414 |  double lux = 10 * pow(100000.0 / resistance, 1.25);
+      |                    ^~~
+../Core/Src/main.c:414:20: warning: incompatible implicit declaration of built-in function 'pow'
+../Core/Src/main.c:26:1: note: include '<math.h>' or provide a declaration of 'pow'
+   25 | #include "Keyboard.h"
+  +++ |+#include <math.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/main.c:417:15: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  417 |  int length = sprintf(string, "%s => resistance: %.3f - lux: %.3f\r\n",
+      |               ^~~~~~~
+../Core/Src/main.c:417:15: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:26:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   25 | #include "Keyboard.h"
+  +++ |+#include <stdio.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/main.c:420:29: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  420 |  HAL_UART_Transmit(&huart2, string, length, 1000);
+      |                             ^~~~~~
+      |                             |
+      |                             char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:723:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  723 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Exam22-12.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\emili\OneDrive - Politecnico di Milano\Desktop\Backup\POLITECNICO\4ANNO\1-SENSOR SYSTEMS\projects\Exam22-12\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Exam22-12.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Exam22-12.elf
+ 
+arm-none-eabi-size   Exam22-12.elf 
+arm-none-eabi-objdump -h -S  Exam22-12.elf  > "Exam22-12.list"
+arm-none-eabi-objcopy  -O binary  Exam22-12.elf  "Exam22-12.bin"
+   text	   data	    bss	    dec	    hex	filename
+  36464	    504	   6000	  42968	   a7d8	Exam22-12.elf
+Finished building: default.size.stdout
+ 
+Finished building: Exam22-12.bin
+ 
+Finished building: Exam22-12.list
+ 
+
+12:08:07 Build Finished. 0 errors, 7 warnings. (took 1s.302ms)
+

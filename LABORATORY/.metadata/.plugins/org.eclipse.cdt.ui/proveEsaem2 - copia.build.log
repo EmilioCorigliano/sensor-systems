@@ -1,0 +1,270 @@
+19:53:42 **** Incremental Build of configuration Debug for project proveEsaem2 - copia ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:43:1: error: unknown type name 'SPI_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+   43 | SPI_HandleTypeDef hspi1;
+      | ^~~~~~~~~~~~~~~~~
+      | DMA_HandleTypeDef
+../Core/Src/main.c:46:1: error: unknown type name 'TIM_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+   46 | TIM_HandleTypeDef htim3;
+      | ^~~~~~~~~~~~~~~~~
+      | DMA_HandleTypeDef
+../Core/Src/main.c:47:1: error: unknown type name 'TIM_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+   47 | TIM_HandleTypeDef htim10;
+      | ^~~~~~~~~~~~~~~~~
+      | DMA_HandleTypeDef
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:2: warning: implicit declaration of function 'HAL_TIM_Base_Start_IT'; did you mean 'HAL_DMA_Start_IT'? [-Wimplicit-function-declaration]
+  110 |  HAL_TIM_Base_Start_IT(&htim10);
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  HAL_DMA_Start_IT
+../Core/Src/main.c:111:2: warning: implicit declaration of function 'HAL_TIM_Encoder_Start' [-Wimplicit-function-declaration]
+  111 |  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+      |  ^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:32: error: 'TIM_CHANNEL_ALL' undeclared (first use in this function)
+  111 |  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+      |                                ^~~~~~~~~~~~~~~
+../Core/Src/main.c:111:32: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:118:13: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  118 |   int len = sprintf(msg, "encoder: %d\r\n",
+      |             ^~~~~~~
+../Core/Src/main.c:118:13: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "main.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:119:5: warning: implicit declaration of function '__HAL_TIM_GET_COUNTER' [-Wimplicit-function-declaration]
+  119 |     __HAL_TIM_GET_COUNTER(&htim3));
+      |     ^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:120:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  120 |   HAL_UART_Transmit(&huart2, msg, len, 1000);
+      |                              ^~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:723:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  723 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c:121:10: warning: assignment to 'uint8_t **' {aka 'unsigned char **'} from incompatible pointer type 'uint8_t (*)[5]' {aka 'unsigned char (*)[5]'} [-Wincompatible-pointer-types]
+  121 |   letter = letter_A;
+      |          ^
+../Core/Src/main.c:123:10: warning: assignment to 'uint8_t **' {aka 'unsigned char **'} from incompatible pointer type 'uint8_t (*)[5]' {aka 'unsigned char (*)[5]'} [-Wincompatible-pointer-types]
+  123 |   letter = letter_A;
+      |          ^
+../Core/Src/main.c: In function 'MX_SPI1_Init':
+../Core/Src/main.c:188:7: error: request for member 'Instance' in something not a structure or union
+  188 |  hspi1.Instance = SPI1;
+      |       ^
+../Core/Src/main.c:189:7: error: request for member 'Init' in something not a structure or union
+  189 |  hspi1.Init.Mode = SPI_MODE_MASTER;
+      |       ^
+../Core/Src/main.c:189:20: error: 'SPI_MODE_MASTER' undeclared (first use in this function)
+  189 |  hspi1.Init.Mode = SPI_MODE_MASTER;
+      |                    ^~~~~~~~~~~~~~~
+../Core/Src/main.c:190:7: error: request for member 'Init' in something not a structure or union
+  190 |  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+      |       ^
+../Core/Src/main.c:190:25: error: 'SPI_DIRECTION_2LINES' undeclared (first use in this function)
+  190 |  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+      |                         ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:191:7: error: request for member 'Init' in something not a structure or union
+  191 |  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+      |       ^
+../Core/Src/main.c:191:24: error: 'SPI_DATASIZE_8BIT' undeclared (first use in this function)
+  191 |  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+      |                        ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:192:7: error: request for member 'Init' in something not a structure or union
+  192 |  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+      |       ^
+../Core/Src/main.c:192:27: error: 'SPI_POLARITY_LOW' undeclared (first use in this function)
+  192 |  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+      |                           ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:193:7: error: request for member 'Init' in something not a structure or union
+  193 |  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+      |       ^
+../Core/Src/main.c:193:24: error: 'SPI_PHASE_1EDGE' undeclared (first use in this function)
+  193 |  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+      |                        ^~~~~~~~~~~~~~~
+../Core/Src/main.c:194:7: error: request for member 'Init' in something not a structure or union
+  194 |  hspi1.Init.NSS = SPI_NSS_SOFT;
+      |       ^
+../Core/Src/main.c:194:19: error: 'SPI_NSS_SOFT' undeclared (first use in this function)
+  194 |  hspi1.Init.NSS = SPI_NSS_SOFT;
+      |                   ^~~~~~~~~~~~
+../Core/Src/main.c:195:7: error: request for member 'Init' in something not a structure or union
+  195 |  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
+      |       ^
+../Core/Src/main.c:195:33: error: 'SPI_BAUDRATEPRESCALER_8' undeclared (first use in this function)
+  195 |  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:196:7: error: request for member 'Init' in something not a structure or union
+  196 |  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+      |       ^
+../Core/Src/main.c:196:24: error: 'SPI_FIRSTBIT_MSB' undeclared (first use in this function)
+  196 |  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+      |                        ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:197:7: error: request for member 'Init' in something not a structure or union
+  197 |  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+      |       ^
+../Core/Src/main.c:197:22: error: 'SPI_TIMODE_DISABLE' undeclared (first use in this function); did you mean 'SPI_TIMODE_DISABLED'?
+  197 |  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+      |                      ^~~~~~~~~~~~~~~~~~
+      |                      SPI_TIMODE_DISABLED
+../Core/Src/main.c:198:7: error: request for member 'Init' in something not a structure or union
+  198 |  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+      |       ^
+../Core/Src/main.c:198:30: error: 'SPI_CRCCALCULATION_DISABLE' undeclared (first use in this function); did you mean 'SPI_CRCCALCULATION_DISABLED'?
+  198 |  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              SPI_CRCCALCULATION_DISABLED
+../Core/Src/main.c:199:7: error: request for member 'Init' in something not a structure or union
+  199 |  hspi1.Init.CRCPolynomial = 10;
+      |       ^
+../Core/Src/main.c:200:6: warning: implicit declaration of function 'HAL_SPI_Init'; did you mean 'HAL_GPIO_Init'? [-Wimplicit-function-declaration]
+  200 |  if (HAL_SPI_Init(&hspi1) != HAL_OK) {
+      |      ^~~~~~~~~~~~
+      |      HAL_GPIO_Init
+../Core/Src/main.c: In function 'MX_TIM3_Init':
+../Core/Src/main.c:220:2: error: unknown type name 'TIM_Encoder_InitTypeDef'
+  220 |  TIM_Encoder_InitTypeDef sConfig = { 0 };
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:221:2: error: unknown type name 'TIM_MasterConfigTypeDef'
+  221 |  TIM_MasterConfigTypeDef sMasterConfig = { 0 };
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:226:7: error: request for member 'Instance' in something not a structure or union
+  226 |  htim3.Instance = TIM3;
+      |       ^
+../Core/Src/main.c:227:7: error: request for member 'Init' in something not a structure or union
+  227 |  htim3.Init.Prescaler = 0;
+      |       ^
+../Core/Src/main.c:228:7: error: request for member 'Init' in something not a structure or union
+  228 |  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+      |       ^
+../Core/Src/main.c:228:27: error: 'TIM_COUNTERMODE_UP' undeclared (first use in this function)
+  228 |  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+      |                           ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:229:7: error: request for member 'Init' in something not a structure or union
+  229 |  htim3.Init.Period = 65535;
+      |       ^
+../Core/Src/main.c:230:7: error: request for member 'Init' in something not a structure or union
+  230 |  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+      |       ^
+../Core/Src/main.c:230:29: error: 'TIM_CLOCKDIVISION_DIV1' undeclared (first use in this function)
+  230 |  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+      |                             ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:231:7: error: request for member 'Init' in something not a structure or union
+  231 |  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+      |       ^
+../Core/Src/main.c:231:33: error: 'TIM_AUTORELOAD_PRELOAD_DISABLE' undeclared (first use in this function)
+  231 |  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:232:9: error: request for member 'EncoderMode' in something not a structure or union
+  232 |  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+      |         ^
+../Core/Src/main.c:232:24: error: 'TIM_ENCODERMODE_TI1' undeclared (first use in this function)
+  232 |  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+      |                        ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:233:9: error: request for member 'IC1Polarity' in something not a structure or union
+  233 |  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |         ^
+../Core/Src/main.c:233:24: error: 'TIM_ICPOLARITY_RISING' undeclared (first use in this function)
+  233 |  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |                        ^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:234:9: error: request for member 'IC1Selection' in something not a structure or union
+  234 |  sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+      |         ^
+../Core/Src/main.c:234:25: error: 'TIM_ICSELECTION_DIRECTTI' undeclared (first use in this function)
+  234 |  sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:235:9: error: request for member 'IC1Prescaler' in something not a structure or union
+  235 |  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |         ^
+../Core/Src/main.c:235:25: error: 'TIM_ICPSC_DIV1' undeclared (first use in this function)
+  235 |  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |                         ^~~~~~~~~~~~~~
+../Core/Src/main.c:236:9: error: request for member 'IC1Filter' in something not a structure or union
+  236 |  sConfig.IC1Filter = 0;
+      |         ^
+../Core/Src/main.c:237:9: error: request for member 'IC2Polarity' in something not a structure or union
+  237 |  sConfig.IC2Polarity = TIM_ICPOLARITY_FALLING;
+      |         ^
+../Core/Src/main.c:237:24: error: 'TIM_ICPOLARITY_FALLING' undeclared (first use in this function); did you mean 'LPTIM_CLOCKPOLARITY_FALLINGEDGE'?
+  237 |  sConfig.IC2Polarity = TIM_ICPOLARITY_FALLING;
+      |                        ^~~~~~~~~~~~~~~~~~~~~~
+      |                        LPTIM_CLOCKPOLARITY_FALLINGEDGE
+../Core/Src/main.c:238:9: error: request for member 'IC2Selection' in something not a structure or union
+  238 |  sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+      |         ^
+../Core/Src/main.c:239:9: error: request for member 'IC2Prescaler' in something not a structure or union
+  239 |  sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+      |         ^
+../Core/Src/main.c:240:9: error: request for member 'IC2Filter' in something not a structure or union
+  240 |  sConfig.IC2Filter = 0;
+      |         ^
+../Core/Src/main.c:241:6: warning: implicit declaration of function 'HAL_TIM_Encoder_Init' [-Wimplicit-function-declaration]
+  241 |  if (HAL_TIM_Encoder_Init(&htim3, &sConfig) != HAL_OK) {
+      |      ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:244:15: error: request for member 'MasterOutputTrigger' in something not a structure or union
+  244 |  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+      |               ^
+../Core/Src/main.c:244:38: error: 'TIM_TRGO_RESET' undeclared (first use in this function)
+  244 |  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+      |                                      ^~~~~~~~~~~~~~
+../Core/Src/main.c:245:15: error: request for member 'MasterSlaveMode' in something not a structure or union
+  245 |  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+      |               ^
+../Core/Src/main.c:245:34: error: 'TIM_MASTERSLAVEMODE_DISABLE' undeclared (first use in this function)
+  245 |  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:246:6: warning: implicit declaration of function 'HAL_TIMEx_MasterConfigSynchronization'; did you mean 'HAL_TIM_SlaveConfigSynchronization'? [-Wimplicit-function-declaration]
+  246 |  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |      HAL_TIM_SlaveConfigSynchronization
+../Core/Src/main.c: In function 'MX_TIM10_Init':
+../Core/Src/main.c:270:8: error: request for member 'Instance' in something not a structure or union
+  270 |  htim10.Instance = TIM10;
+      |        ^
+../Core/Src/main.c:271:8: error: request for member 'Init' in something not a structure or union
+  271 |  htim10.Init.Prescaler = 4800 - 1;
+      |        ^
+../Core/Src/main.c:272:8: error: request for member 'Init' in something not a structure or union
+  272 |  htim10.Init.CounterMode = TIM_COUNTERMODE_UP;
+      |        ^
+../Core/Src/main.c:272:28: error: 'TIM_COUNTERMODE_UP' undeclared (first use in this function)
+  272 |  htim10.Init.CounterMode = TIM_COUNTERMODE_UP;
+      |                            ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:273:8: error: request for member 'Init' in something not a structure or union
+  273 |  htim10.Init.Period = 40 - 1;
+      |        ^
+../Core/Src/main.c:274:8: error: request for member 'Init' in something not a structure or union
+  274 |  htim10.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+      |        ^
+../Core/Src/main.c:274:30: error: 'TIM_CLOCKDIVISION_DIV1' undeclared (first use in this function)
+  274 |  htim10.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+      |                              ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:275:8: error: request for member 'Init' in something not a structure or union
+  275 |  htim10.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+      |        ^
+../Core/Src/main.c:275:34: error: 'TIM_AUTORELOAD_PRELOAD_DISABLE' undeclared (first use in this function)
+  275 |  htim10.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:276:6: warning: implicit declaration of function 'HAL_TIM_Base_Init' [-Wimplicit-function-declaration]
+  276 |  if (HAL_TIM_Base_Init(&htim10) != HAL_OK) {
+      |      ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:364:36: error: unknown type name 'TIM_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+  364 | void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+      |                                    ^~~~~~~~~~~~~~~~~
+      |                                    DMA_HandleTypeDef
+../Core/Src/main.c:375:29: error: unknown type name 'SPI_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+  375 | void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi) {
+      |                             ^~~~~~~~~~~~~~~~~
+      |                             DMA_HandleTypeDef
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+19:53:43 Build Failed. 67 errors, 12 warnings. (took 862ms)
+

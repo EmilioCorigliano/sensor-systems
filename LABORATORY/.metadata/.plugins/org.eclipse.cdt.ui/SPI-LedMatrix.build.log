@@ -1,0 +1,10 @@
+19:14:42 **** Incremental Build of configuration Debug for project SPI-LedMatrix ****
+make -j8 all 
+arm-none-eabi-size   SPI-LedMatrix.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16912	    132	   1812	  18856	   49a8	SPI-LedMatrix.elf
+Finished building: default.size.stdout
+ 
+
+19:14:43 Build Finished. 0 errors, 0 warnings. (took 303ms)
+

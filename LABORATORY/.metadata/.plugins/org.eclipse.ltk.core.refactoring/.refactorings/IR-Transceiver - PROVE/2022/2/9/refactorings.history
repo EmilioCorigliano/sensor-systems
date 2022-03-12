@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;IR-Transceiver - PROVE/IR-Transceiver.ioc&apos; to &apos;IR-Transceiver - PROVE.ioc&apos;" description="Rename resource &apos;IR-Transceiver.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="IR-Transceiver.ioc" name="IR-Transceiver - PROVE.ioc" stamp="1645642906858" updateReferences="true"/>
+</session>

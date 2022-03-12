@@ -1,0 +1,19 @@
+working properly
+
+RECEIVER:
+- call HAL_UART_Receive_IT to enable to wait for a character
+- when a char is received, the callback is called: here we start
+the transmission to the UART connected to the PC
+
+TRANSMITTER:
+> TIM2 channel 3: linked to the Infra-Red led; generates a modulated signal at 38kHz
+> TIM11: used to follow the given baudrate (2400 Hz -> 2400 bit/s)
+- start the TIM11 timer to start the transmission of chars
+- for each byte:
+	. wait until the previous byte has been transmitted (wait for "sending" flag to be resetted)
+	. set the sending flag, set the bit index to -1
+	. following the baudrate, send the byte using the UART protocol:
+		* send start bit[modulated],
+		* for each bit, if it is low modulates, otherwise led stays down;
+		* sends the stop bit (led stays down);
+		* at the next cycle resets the "sending" flag;

@@ -1,0 +1,19 @@
+20:36:41 **** Incremental Build of configuration Debug for project I2C-Accelerometer-1 ****
+make -j8 all 
+arm-none-eabi-gcc -o "I2C-Accelerometer-1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\emili\OneDrive - Politecnico di Milano\Desktop\Backup\POLITECNICO\4ANNO\1-SENSOR SYSTEMS\projects\I2C-Accelerometer-1\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="I2C-Accelerometer-1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: I2C-Accelerometer-1.elf
+ 
+arm-none-eabi-size   I2C-Accelerometer-1.elf 
+arm-none-eabi-objdump -h -S  I2C-Accelerometer-1.elf  > "I2C-Accelerometer-1.list"
+arm-none-eabi-objcopy  -O binary  I2C-Accelerometer-1.elf  "I2C-Accelerometer-1.bin"
+   text	   data	    bss	    dec	    hex	filename
+  28784	    484	   1748	  31016	   7928	I2C-Accelerometer-1.elf
+Finished building: default.size.stdout
+ 
+Finished building: I2C-Accelerometer-1.bin
+ 
+Finished building: I2C-Accelerometer-1.list
+ 
+
+20:36:41 Build Finished. 0 errors, 0 warnings. (took 606ms)
+

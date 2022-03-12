@@ -1,0 +1,10 @@
+14:14:48 **** Incremental Build of configuration Debug for project Encoder-DMA ****
+make -j8 all 
+arm-none-eabi-size   Encoder-DMA.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31020	    484	   1948	  33452	   82ac	Encoder-DMA.elf
+Finished building: default.size.stdout
+ 
+
+14:14:48 Build Finished. 0 errors, 0 warnings. (took 293ms)
+

@@ -1,0 +1,10 @@
+20:43:42 **** Incremental Build of configuration Debug for project IR-Transceiver-extended-qualcosa ****
+make -j8 all 
+arm-none-eabi-size   IR-Transceiver-extended-qualcosa.elf 
+   text	   data	    bss	    dec	    hex	filename
+  47404	    528	   2584	  50516	   c554	IR-Transceiver-extended-qualcosa.elf
+Finished building: default.size.stdout
+ 
+
+20:43:43 Build Finished. 0 errors, 0 warnings. (took 308ms)
+

@@ -1,0 +1,61 @@
+11:32:45 **** Incremental Build of configuration Debug for project exam-24-02 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:140:31: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  140 |  HAL_UART_Receive_IT(&huart1, &tempRecv, sizeof(float));
+      |                               ^~~~~~~~~
+      |                               |
+      |                               float *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:726:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'float *'
+  726 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:569:22: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  569 |    int len = sprintf(string, "Temp: %.3f Celsius\r\n", tempSampled);
+      |                      ^~~~~~
+      |                      |
+      |                      unsigned char *
+In file included from ../Core/Inc/PMDB16_LCD.h:2,
+                 from ../Core/Src/main.c:25:
+c:\program files\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'unsigned char *'
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:593:32: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  593 |   HAL_UART_Receive_IT(&huart1, &tempRecv, sizeof(float));
+      |                                ^~~~~~~~~
+      |                                |
+      |                                float *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:726:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'float *'
+  726 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'sampleDMA':
+../Core/Src/main.c:605:9: warning: implicit declaration of function 'readRegDMA' [-Wimplicit-function-declaration]
+  605 |  return readRegDMA(0x0, buf, 5);
+      |         ^~~~~~~~~~
+arm-none-eabi-gcc -o "exam-24-02.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\emili\OneDrive - Politecnico di Milano\Desktop\Backup\POLITECNICO\4ANNO\1-SENSOR SYSTEMS\projects\exam-24-02\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exam-24-02.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exam-24-02.elf
+ 
+arm-none-eabi-size   exam-24-02.elf 
+arm-none-eabi-objdump -h -S  exam-24-02.elf  > "exam-24-02.list"
+arm-none-eabi-objcopy  -O binary  exam-24-02.elf  "exam-24-02.bin"
+   text	   data	    bss	    dec	    hex	filename
+  43988	    532	   2316	  46836	   b6f4	exam-24-02.elf
+Finished building: default.size.stdout
+ 
+Finished building: exam-24-02.bin
+ 
+Finished building: exam-24-02.list
+ 
+
+11:32:46 Build Finished. 0 errors, 4 warnings. (took 1s.307ms)
+
